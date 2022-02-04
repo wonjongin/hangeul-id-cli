@@ -1,0 +1,11 @@
+{
+  "name": "hangeul-id-cli",
+  "version": "0.1.1",
+  "dependencies": [
+    "catch2",
+    "cli11",
+    "boost-uuid",
+    "boost-algorithm",
+    "boost-multiprecision"
+  ]
+}
