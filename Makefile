@@ -21,16 +21,14 @@ cmake:
 	@cmake \
 		-G Ninja \
 		-B build \
-		-DCMAKE_BUILD_TYPE=Release \
-		-DCMAKE_TOOLCHAIN_FILE=${VCPKG_PATH}/scripts/buildsystems/vcpkg.cmake
+		-DCMAKE_TOOLCHAIN_FILE=${VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake
 
 .PHONY: build
 build:
 	@cmake \
         -G Ninja \
         -B build \
-        -DCMAKE_BUILD_TYPE=Release \
-        -DCMAKE_TOOLCHAIN_FILE=${VCPKG_PATH}/scripts/buildsystems/vcpkg.cmake
+        -DCMAKE_TOOLCHAIN_FILE=${VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake
 	@ninja -C build;
 
 .PHONY: build-make
@@ -38,8 +36,7 @@ build-make:
 	@cmake \
         -G "Unix Makefiles" \
         -B build \
-        -DCMAKE_BUILD_TYPE=Release \
-        -DCMAKE_TOOLCHAIN_FILE=${VCPKG_PATH}/scripts/buildsystems/vcpkg.cmake
+        -DCMAKE_TOOLCHAIN_FILE=${VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake
 	@make -C build;
 
 .PHONY: test

@@ -22,7 +22,7 @@ Subcommands:
 
 ## Install Binary
 
-Download Release file and copy in directory registered in PATH.
+Download [Release](https://github.com/wonjongin/hangeul-id-cli/releases) file and copy in directory registered in PATH.
 
 ## Build
 
@@ -31,22 +31,24 @@ Download Release file and copy in directory registered in PATH.
 - [cmake](https://cmake.org)
 - c++ compiler (like clang, gcc)
 - [make](https://www.gnu.org/software/make/) or [ninja](https://github.com/ninja-build/ninja)
+- [hangeul-id-cpp](https://github.com/wonjongin/hangeul-id-cpp)
 - [vcpkg](https://github.com/microsoft/vcpkg) (optional)
 
 ### Build and Install
 
-1. We manage dependencies with [vcpkg](https://github.com/microsoft/vcpkg). Please set up vcpkg or [set up manually](#Setup manually)
-2. Clone this project and go to project directory.
-3. `vcpkg install` to install dependencies with vcpkg
-4. `export VCPKG_PATH=/path/to/vcpkg`
-5. Ninja -> 5.i, Make -> 5.ii
+1. We manage dependencies with [vcpkg](https://github.com/microsoft/vcpkg). Please set up vcpkg.
+2. Hangeul ID library is required. Please set up [hangeul-id-cpp](https://github.com/wonjongin/hangeul-id-cpp).
+3. Clone this project and go to project directory.
+4. `vcpkg install` to install dependencies with vcpkg
+5. `export VCPKG_ROOT=/path/to/vcpkg`
+6. Ninja -> 5.i, Make -> 5.ii
 
     1. Ninja
         ```shell
        cmake \
        -G Ninja \
        -B build \
-       -DCMAKE_TOOLCHAIN_FILE=${VCPKG_PATH}/scripts/buildsystems/vcpkg.cmake 
+       -DCMAKE_TOOLCHAIN_FILE=$VCPKG_ROOT/scripts/buildsystems/vcpkg.cmake 
        
        ninja -C build
        
@@ -57,7 +59,7 @@ Download Release file and copy in directory registered in PATH.
        cmake \
        -G "Unix Makefiles" \
        -B build \
-       -DCMAKE_TOOLCHAIN_FILE=${VCPKG_PATH}/scripts/buildsystems/vcpkg.cmake 
+       -DCMAKE_TOOLCHAIN_FILE=$VCPKG_ROOT/scripts/buildsystems/vcpkg.cmake 
        
        make -C build
        
